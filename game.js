@@ -1,7 +1,6 @@
 //GUESS THE FOOTBALL TEAM!
 
-console.clear();
-var footBall = ['raiders', 'seahawks', 'dolphins', 'patriots', 'cardinals', 'chiefs'];
+var footBall = ['luke', 'owbiwan', 'r2d2', 'lightsaber', 'theforce', 'stormtrooper'];
 var guessesLeft = 21;
 var wins = 1;
 var losses = 1;
@@ -24,7 +23,7 @@ console.log(computerGuess);
 
 function resetGame() {
 
-	// document.getElementById("blankLines").innerHTML = blankLines.join('_ ');
+
 	document.getElementById("lettersGuessed").innerHTML = guessedLetters;
 }
 
@@ -44,26 +43,30 @@ document.onkeyup = function (event) {
 			}
 		}
 		//will replace blankLine with userGuess
-		// console.log(typeof blankLines)
+
 		document.getElementById("blankLines").innerHTML = blankLines.join(' ');
 	}
-	
+
 
 
 	if (computerGuess === blankLines.join('')) {
 		alert("you win!");
 		document.getElementById("wins").innerHTML = wins; wins++;
+		var audio = new Audio('father.mp3');
+		audio.play();
 		startGame();
 	}
-
+	
 	else {
 		guessesLeft--;
 		document.getElementById("guessesLeft").innerHTML = guessesLeft;
 	}
-
+	
 	if (guessesLeft === 0) {
 		alert("game over");
 		document.getElementById("losses").innerHTML = losses; losses++;
+		var audio = new Audio('darkside.mp3');
+	audio.play();
 		startGame();
 	}
 

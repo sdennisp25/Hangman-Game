@@ -1,0 +1,31 @@
+.container {
+	box-sizing: border-box;
+}
+
+.box {
+	margin-top: 10%;
+	margin-left: 5%;
+	background-color: black;
+	opacity: 0.8;
+	border: 2px dashed white;
+	width: 600px;
+}
+
+body {
+	box-sizing: border-box;
+	background-image:url(./starwars.jpeg);
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-color: black;
+}
+
+h1 {
+	color: white;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.header {
+	text-align: center;
+	font-weight: bold;
+	font-size: 30px;
+}

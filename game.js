@@ -1,71 +1,69 @@
 //GUESS THE FOOTBALL TEAM!
 
-var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
 var footBall = ['raiders', 'seahawks', 'dolphins', 'patriots', 'cardinals', 'chiefs'];
 var guessesLeft = 21;
-var guessedLetters = [];
 var wins = 1;
 var losses = 1;
 var blankLines = [];
+var guessedLetters = [];
 
 var computerGuess = footBall[Math.floor(Math.random() * footBall.length)];
 console.log(computerGuess);
 
-
-
-
-for (var i = 0; i < computerGuess.length; i++) {
-	blankLines += '_ ';
-	document.getElementById("blank").innerHTML = blankLines;
+function startGame() {
+	for (var i = 0; i < computerGuess.length; i++) {
+		blankLines.push('_ ');
+		console.log(blankLines);
+		document.getElementById("blankLines").innerHTML = blankLines;
+	}
 }
 
+function resetGame() {
+	var guessesLeft = 20;
+	var guessedLetters = [];
+	var computerGuess = footBall[Math.floor(Math.random() * footBall.length)];
+	console.log(computerGuess);
+}
 
+startGame();
 
 document.onkeyup = function (event) {
 	var userGuess = event.key;
-	console.log(event.key);
-	guessedLetters.push(event.key);
+	console.log(userGuess);
+	guessedLetters.push(userGuess);
 	document.getElementById("lettersGuessed").innerHTML = guessedLetters;
 	
-
+	// will help us locate the userGuesses letter within the computer random array
 	if (computerGuess.indexOf(userGuess) > -1) {
-
-		for (var i = 0; i < 26; i++) {
+		for (var i = 0; i < computerGuess.length; i++) {
 			if (userGuess === computerGuess[i]) {
-			
-			// blankLines --;
-				
+				blankLines[i] = userGuess;
 			}
 		}
+		console.log(typeof blankLines)
+		document.getElementById("blankLines").innerHTML = blankLines;
 	}
 
 
-
-
-
-
-	if (computerGuess === blankLines) {
+	if (computerGuess === blankLines.join('')) {
 		alert("you win!");
 		document.getElementById("win").innerHTML = win; win++;
 	}
-
+	
 	else {
 		guessesLeft--;
 		document.getElementById("guessesLeft").innerHTML = guessesLeft;
 	}
-
-	if (guessesLeft === 0){
+	
+	if (guessesLeft === 0) {
 		alert("game over");
-		resetgame();
+		document.getElementById("losses").innerHTML = losses; losses++;
+		resetGame();
 	}
-
-	function resetgame() {
-		var guessesLeft = 21;
-		var guessedLetters = [];
-		var computerGuess = footBall[Math.floor(Math.random() * footBall.length)];
-console.log(computerGuess);
-	}
-
-
-
+	
+	
+	
 }
+
+

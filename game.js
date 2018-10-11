@@ -1,6 +1,6 @@
 //GUESS THE FOOTBALL TEAM!
 
-var footBall = ['luke', 'owbiwan', 'r2d2', 'lightsaber', 'theforce', 'stormtrooper'];
+var footBall = ['luke', 'obiwan', 'r2d2', 'lightsaber', 'theforce', 'stormtrooper'];
 var guessesLeft = 21;
 var wins = 1;
 var losses = 1;
